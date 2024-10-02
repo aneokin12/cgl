@@ -12,7 +12,8 @@ def microsatellite_compression(sequence: str) -> str:
             compressed.append(pair[0])  # Add only the first character of the current pair
             i += 1  # Move to the next overlapping pair
         else:
-            # If the current pair matches the last one, skip the entire pair
+            # If the current pair matches the last one, skip the entire pair, append '**' for skipped pair
+            compressed.append('**')  # Add asterisks for each skipped pair
             i += 2
     
     # Add the last character if we have an odd-length sequence
@@ -32,5 +33,6 @@ compressed_sequence = microsatellite_compression(sequence)
 
 # End time tracking
 end_time = time.time()
-print(compressed_sequence)
+print("Original sequence:   ", sequence)
+print("Compressed sequence: ", compressed_sequence)
 print(f"Time taken: {end_time - start_time:.6f} seconds")
