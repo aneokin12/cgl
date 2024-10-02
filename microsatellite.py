@@ -1,3 +1,5 @@
+import time
+
 def microsatellite_compression(sequence: str) -> str:
     compressed = []
     i = 0  # Start index
@@ -21,6 +23,14 @@ def microsatellite_compression(sequence: str) -> str:
     return ''.join(compressed)
 
 # Example usage:
-sequence = "TATATACCTCTAGGACCGCGCATATAC"
+sequence = "TATATACTCTACATGATATCA"
+# Start time tracking
+start_time = time.time()
+
+# Perform microsatellite compression
 compressed_sequence = microsatellite_compression(sequence)
+
+# End time tracking
+end_time = time.time()
 print(compressed_sequence)
+print(f"Time taken: {end_time - start_time:.6f} seconds")
